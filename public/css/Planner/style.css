@@ -1,0 +1,136 @@
+.model-system-container
+{
+	margin-left: 50px; 
+}
+
+.operator-field
+{
+	white-space: nowrap;
+}
+
+.model-system-machine
+{
+	display: inline-block;
+	border: 1px solid rgba(65,105,225,0.8);
+	border-radius: 2px;
+	width: 200px;
+}
+
+.model-system-machine:hover
+{
+	cursor: pointer;
+	background-color: rgba(65,105,225,0.1);
+}
+
+.model-system-machine p
+{
+	margin: 15px 5px;
+}
+
+.model-system-task
+{
+	border: 1px solid rgba(51,51,51,0.5);
+	display: inline-block;
+	margin-right: 20px;
+	padding: 5px 10px;
+	border-radius: 2px;
+}
+
+.model-system-task:hover
+{
+	cursor: pointer;
+	background-color: rgba(51,51,51,0.1);
+}
+
+.model-system-task p
+{
+	margin: 5px;
+}
+
+.model-system-task-queue
+{
+	width: 1000px;
+	overflow-x: scroll; 
+	white-space: nowrap;
+}
+
+.mask-date-container,.mask-workers-container,.mask-modelParts-container
+{
+	white-space: nowrap;
+	margin-top: 100px;
+	margin-bottom: 40px;
+}
+
+.mask-part-container
+{
+	margin: 0px 20px;
+	display: inline-block;
+}
+
+
+.mask-part-container input
+{
+	width: 120px;
+	height: 35px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+	margin-top: 5px;
+}
+
+.mask-part-container span
+{
+	font-size: 14px;
+	margin: 0px 5px;
+	color: rgba(0,0,0,1);
+}
+
+.mask-text
+{
+	font-size: 20px;
+	color: rgba(220,20,60,1);
+}
+
+.state_1
+{
+	color: #11d6d6;
+}
+
+.state_2
+{
+	color: #2ed611;
+}
+
+.state_3
+{
+	color: #df1919;
+}
+
+.state_4
+{
+	color: #908684;
+}
+
+.search-field
+{
+	margin: 30px 0px 5px 0px;
+}
+
+.search-identifying
+{
+	background-color: rgba(225,225,0,1);
+}
+
+.search-identifying:hover
+{
+	background-color: rgba(225,225,0,1);
+}
+
+.search-focus
+{
+	background-color: rgba(255,150,50,1);
+}
+
+.search-focus:hover
+{
+	background-color: rgba(255,150,50,1);
+}

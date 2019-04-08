@@ -1,0 +1,76 @@
+.model-system-container
+{
+	text-align: center;
+}
+
+.model-system-text
+{
+	font-size: 20px;
+	color: rgba(220,20,60,1);
+}
+
+.model-system-table
+{
+	margin: 0px auto;
+}
+
+.mask-container
+{
+	display: inline-block;
+	margin: 100px auto;
+	background: rgba(255,255,255,1);
+	text-align: left;
+	padding: 10px 15px;
+	border-radius: 5px;
+	max-width: 60%;
+}
+
+.mask-container p
+{
+	font-size: 20px;
+	color: #000000;
+}
+
+.model-system-mask
+{
+	background-color: rgba(0,0,0,0.8);
+}
+
+#refresh-pending-link:hover
+{
+	cursor: pointer;
+}
+#refresh-running-link:hover
+{
+	cursor: pointer;
+}
+.pending-details:hover
+{
+	cursor: pointer;
+}
+
+.running-start,.running-pause,.running-end,.running-details
+{
+	color: #1d29bb;
+	margin: 0px 10px;
+}
+
+.running-start,.running-pause,.running-end,.running-details:hover
+{
+	cursor: pointer;
+}
+
+.state_0
+{
+	color: #df1919;
+}
+
+.state_1
+{
+	color: #2ed611;
+}
+
+.state_2
+{
+	color: #11d6d6;
+}

@@ -1,0 +1,5 @@
+2017-06-13 15:12:41
+连接数据库错误：SQLSTATE[HY000] [1045] Accès refusé pour l'utilisateur: 'root'@'@localhost' (mot de passe: OUI)
+ 
+ 
+ 

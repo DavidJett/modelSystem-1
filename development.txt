@@ -1,0 +1,292 @@
+$_SESSION 定义
+$_SESSION['user']：string，登录的用户名
+
+计划员页面任务状态代码
+0->队列中
+1->等待工人确认
+2->工人已接收任务
+3->工人已驳回任务
+4->任务已结束
+
+part_task_list状态代码
+0->暂停
+1->进行中
+2->结束
+
+machine_info 中的workType
+0->8小时工作
+1->16小时工作
+2->24小时工作
+
+part_task_list中
+startTime 工人接收任务的时间，单位秒
+finishTime 工人接收任务的时间，单位秒
+curStartTime 工人最近一次开始任务的时间， 单位秒
+totalTime 到上次开始任务为止的总时间， 单位秒
+
+select mai.machineCode, mai.machineName, mi.modelCode, pi.partCode, pi.partName, ptl.taskName, ui.userId, ui.name, ptl.startTime, ptl.totalTime from part_task_list as ptl left join machine_info mai on ptl.machineId = mai.machineId left join part_info pi on ptl.belongedPart = pi.id left join model_info mi on pi.belongedModel = mi.modelId left join user_info ui on ptl.userId = ui.id where ptl.flag =1 and ptl.finishTime is null
+
+select mi.modelCode, pi.partCode, pi.partName, pt.procedureName, mai.machineCode, mai.machineName from pending_task as pt left join model_info mi on pt.modelId=mi.modelId left join part_info pi on pt.partId=pi.id left join machine_info mai on pt.machineId=mai.machineId where pt.workerId=? and pt.state=1
+
+insert into dept_info (deptId, deptName, leaderId, isPlan) values(1, '超级管理员', null, 0);
+insert into dept_info (deptId, deptName, leaderId, isPlan) values(2, '系统管理员', null, 0);
+insert into dept_info (deptId, deptName, leaderId, isPlan) values(3, '计划部', null, 0);
+insert into dept_info (deptId, deptName, leaderId, isPlan) values(4, '研发部', null, 0);
+insert into dept_info (deptId, deptName, leaderId, isPlan) values(5, '编程部', null, 0);
+insert into dept_info (deptId, deptName, leaderId, isPlan) values(6, '品质部', null, 1);
+insert into dept_info (deptId, deptName, leaderId, isPlan) values(7, '加工中心', null, 1);
+insert into dept_info (deptId, deptName, leaderId, isPlan) values(8, '电加工部', null, 1);
+insert into dept_info (deptId, deptName, leaderId, isPlan) values(9, '机加工部', null, 1);
+insert into dept_info (deptId, deptName, leaderId, isPlan) values(10, '钳工二组', null, 1);
+insert into dept_info (deptId, deptName, leaderId, isPlan) values(11, '钳工三组', null, 1);
+insert into dept_info (deptId, deptName, leaderId, isPlan) values(12, '钳工四组', null, 1);
+insert into dept_info (deptId, deptName, leaderId, isPlan) values(13, '钳工五组', null, 1);
+insert into dept_info (deptId, deptName, leaderId, isPlan) values(14, '钳工六组', null, 1);
+insert into dept_info (deptId, deptName, leaderId, isPlan) values(15, '钳工七组', null, 1);
+
+insert into user_info (id, deptId, password, name) values ('00040', 4, '123456', '王雷永');
+insert into user_info (id, deptId, password, name) values ('00011', 4, '123456', '董奇');
+insert into user_info (id, deptId, password, name) values ('00298', 4, '123456', '吕柯威');
+insert into user_info (id, deptId, password, name) values ('00346', 4, '123456', '邓伟');
+insert into user_info (id, deptId, password, name) values ('00108', 4, '123456', '顾鼎辉');
+insert into user_info (id, deptId, password, name) values ('00048', 4, '123456', '尹勇');
+insert into user_info (id, deptId, password, name) values ('00239', 4, '123456', '俞斌');
+insert into user_info (id, deptId, password, name) values ('00272', 4, '123456', '应勇');
+insert into user_info (id, deptId, password, name) values ('00157', 4, '123456', '吴洋洋');
+insert into user_info (id, deptId, password, name) values ('00039', 4, '123456', '唐卫平');
+insert into user_info (id, deptId, password, name) values ('00044', 4, '123456', '王晶新');
+insert into user_info (id, deptId, password, name) values ('00049', 4, '123456', '林凡争');
+insert into user_info (id, deptId, password, name) values ('00140', 4, '123456', '元瑞勤');
+insert into user_info (id, deptId, password, name) values ('00198', 4, '123456', '李强');
+insert into user_info (id, deptId, password, name) values ('00046', 4, '123456', '张兰凤');
+insert into user_info (id, deptId, password, name) values ('00055', 4, '123456', '潘显珍');
+insert into user_info (id, deptId, password, name) values ('00241', 4, '123456', '姚佳宏');
+insert into user_info (id, deptId, password, name) values ('00200', 4, '123456', '王中金');
+insert into user_info (id, deptId, password, name) values ('00347', 4, '123456', '蒋海杰');
+insert into user_info (id, deptId, password, name) values ('00042', 4, '123456', '徐挺');
+insert into user_info (id, deptId, password, name) values ('00251', 4, '123456', '董宽');
+insert into user_info (id, deptId, password, name) values ('00005', 4, '123456', '鲁航彪');
+insert into user_info (id, deptId, password, name) values ('00362', 4, '123456', '周身弼');
+insert into user_info (id, deptId, password, name) values ('00375', 4, '123456', '严仕杰');
+insert into user_info (id, deptId, password, name) values ('00243', 6, '123456', '陈平丽');
+insert into user_info (id, deptId, password, name) values ('00158', 6, '123456', '刘秀');
+insert into user_info (id, deptId, password, name) values ('00147', 6, '123456', '谭慈莎');
+insert into user_info (id, deptId, password, name) values ('00033', 6, '123456', '胡天平');
+insert into user_info (id, deptId, password, name) values ('00174', 6, '123456', '雷辉');
+insert into user_info (id, deptId, password, name) values ('00268', 6, '123456', '蒋志刚');
+insert into user_info (id, deptId, password, name) values ('00159', 6, '123456', '汪奇波');
+insert into user_info (id, deptId, password, name) values ('00131', 6, '123456', '陆海峰');
+insert into user_info (id, deptId, password, name) values ('00062', 5, '123456', '郑光伟');
+insert into user_info (id, deptId, password, name) values ('00063', 5, '123456', '朱晶涛');
+insert into user_info (id, deptId, password, name) values ('00064', 5, '123456', '陈旭辉');
+insert into user_info (id, deptId, password, name) values ('00065', 5, '123456', '李松凯');
+insert into user_info (id, deptId, password, name) values ('00179', 5, '123456', '史世翔');
+insert into user_info (id, deptId, password, name) values ('00163', 5, '123456', '侯少杰');
+insert into user_info (id, deptId, password, name) values ('00053', 5, '123456', '刘建');
+insert into user_info (id, deptId, password, name) values ('00204', 5, '123456', '孙帅帅');
+insert into user_info (id, deptId, password, name) values ('00148', 5, '123456', '贺子骅');
+insert into user_info (id, deptId, password, name) values ('00077', 7, '123456', '苏恩军');
+insert into user_info (id, deptId, password, name) values ('00098', 7, '123456', '杨咏');
+insert into user_info (id, deptId, password, name) values ('00074', 7, '123456', '王宁');
+insert into user_info (id, deptId, password, name) values ('00078', 7, '123456', '黄佳风');
+insert into user_info (id, deptId, password, name) values ('00082', 7, '123456', '邵辉');
+insert into user_info (id, deptId, password, name) values ('00182', 7, '123456', '刘晓平');
+insert into user_info (id, deptId, password, name) values ('00167', 7, '123456', '王二威');
+insert into user_info (id, deptId, password, name) values ('00249', 7, '123456', '姚欢');
+insert into user_info (id, deptId, password, name) values ('00275', 7, '123456', '谭亮亮');
+insert into user_info (id, deptId, password, name) values ('00035', 7, '123456', '徐磊');
+insert into user_info (id, deptId, password, name) values ('00240', 7, '123456', '王升凯');
+insert into user_info (id, deptId, password, name) values ('00076', 7, '123456', '刘沛');
+insert into user_info (id, deptId, password, name) values ('00054', 7, '123456', '王鹏');
+insert into user_info (id, deptId, password, name) values ('00361', 7, '123456', '何前');
+insert into user_info (id, deptId, password, name) values ('00372', 7, '123456', '王广雷');
+insert into user_info (id, deptId, password, name) values ('00051', 7, '123456', '余勇');
+insert into user_info (id, deptId, password, name) values ('00084', 7, '123456', '王良友');
+insert into user_info (id, deptId, password, name) values ('00085', 7, '123456', '罗南海');
+insert into user_info (id, deptId, password, name) values ('00381', 8, '123456', '袁传禄');
+insert into user_info (id, deptId, password, name) values ('00094', 8, '123456', '蔡人华');
+insert into user_info (id, deptId, password, name) values ('00095', 8, '123456', '周欢毫');
+insert into user_info (id, deptId, password, name) values ('00086', 8, '123456', '叶天红');
+insert into user_info (id, deptId, password, name) values ('00175', 8, '123456', '杨超');
+insert into user_info (id, deptId, password, name) values ('00032', 8, '123456', '孙贤杰');
+insert into user_info (id, deptId, password, name) values ('00119', 8, '123456', '洪定峰');
+insert into user_info (id, deptId, password, name) values ('00363', 8, '123456', '牟伟');
+insert into user_info (id, deptId, password, name) values ('00092', 8, '123456', '贺永权');
+insert into user_info (id, deptId, password, name) values ('00093', 8, '123456', '徐孝文');
+insert into user_info (id, deptId, password, name) values ('00187', 3, '123456', '许崇轩');
+insert into user_info (id, deptId, password, name) values ('00096', 9, '123456', '李金生');
+insert into user_info (id, deptId, password, name) values ('00097', 9, '123456', '戴静祥');
+insert into user_info (id, deptId, password, name) values ('00017', 9, '123456', '吴佳俊');
+insert into user_info (id, deptId, password, name) values ('00345', 9, '123456', '汪进阳');
+insert into user_info (id, deptId, password, name) values ('00235', 9, '123456', '邓旺国');
+insert into user_info (id, deptId, password, name) values ('00103', 9, '123456', '张明成');
+insert into user_info (id, deptId, password, name) values ('00100', 9, '123456', '蔡忠岭');
+insert into user_info (id, deptId, password, name) values ('00104', 9, '123456', '武龙');
+insert into user_info (id, deptId, password, name) values ('00384', 9, '123456', '向书地');
+insert into user_info (id, deptId, password, name) values ('00143', 9, '123456', '周家定');
+insert into user_info (id, deptId, password, name) values ('00386', 9, '123456', '武传星');
+insert into user_info (id, deptId, password, name) values ('00188', 10, '123456', '张鸿辉');
+insert into user_info (id, deptId, password, name) values ('00111', 10, '123456', '陈波');
+insert into user_info (id, deptId, password, name) values ('00377', 10, '123456', '方坤');
+insert into user_info (id, deptId, password, name) values ('00383', 10, '123456', '邓小锋');
+
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('普通机加工-台式钻床', 'ZZ-SC-E 050', 9, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('普通机加工-台式钻床', 'ZZ-SC-E 051', 9, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('普通机加工-台式钻床', 'ZZ-SC-E 052', 9, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('普通机加工-卧轴矩台平面磨床', 'ZZ-SC-E 064', 9, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('普通机加工-磨床', 'ZZ-SC-E 030', 9, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('普通机加工-磨床', 'ZZ-SC-E 053', 9, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('普通机加工-平面磨床', 'ZZ-SC-E 056', 9, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('普通机加工-平面磨床', 'ZZ-SC-E 057', 9, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('普通机加工-高速卧式车床', 'ZZ-SC-E 042', 9, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('普通机加工-卧式车床', 'ZZ-SC-E 043', 9, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('普通机加工-铣床', 'ZZ-SC-E 044', 9, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('普通机加工-摇臂钻床', 'ZZ-SC-E 034', 9, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('普通机加工-摇臂钻床', 'ZZ-SC-E 035', 9, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('普通机加工-摇臂钻床', 'ZZ-SC-E 037', 9, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('普通机加工-摇臂钻床', 'ZZ-SC-E 038', 9, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('普通机加工-摇臂钻床', 'ZZ-SC-E 039', 9, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('线切割', 'ZZ-SC-E 015', 8, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('线切割', 'ZZ-SC-E 016', 8, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('线切割', 'ZZ-SC-E 017', 8, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('线切割', 'ZZ-SC-E 018', 8, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('线切割', 'ZZ-SC-E 019', 8, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('线切割', 'ZZ-SC-E 020', 8, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('线切割', 'ZZ-SC-E 021', 8, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('线切割-慢走丝', 'ZZ-SC-E 013', 8, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('线切割-慢走丝', 'ZZ-SC-E 014', 8, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('电火花-大韩', 'ZZ-SC-E 022', 8, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('电火花-大韩', 'ZZ-SC-E 023', 8, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('电火花-欧米隆', 'ZZ-SC-E 024', 8, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('电火花-欧米隆', 'ZZ-SC-E 025', 8, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('电火花-清水机', 'ZZ-SC-E 026', 8, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('电火花-清水机', 'ZZ-SC-E 027', 8, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('电火花-清水机', 'ZZ-SC-E 028', 8, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('电火花-清水机', 'ZZ-SC-E 029', 8, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('电火花-汉霸', 'ZZ-SC-E 058', 8, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('加工中心-德玛吉', 'ZZ-SC-E 001', 7, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('加工中心-德玛吉', 'ZZ-SC-E 002', 7, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('加工中心-牧野', 'ZZ-SC-E 003', 7, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('加工中心-数控铣', 'ZZ-SC-E 004', 7, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('加工中心-数控铣', 'ZZ-SC-E 006', 7, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('加工中心-数控铣', 'ZZ-SC-E 007', 7, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('加工中心-数控铣', 'ZZ-SC-E 008', 7, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('加工中心-深孔钻', 'ZZ-SC-E 011', 7, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('加工中心-雕刻机', 'ZZ-SC-E 012', 7, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('加工中心-德玛吉', 'ZZ-SC-E 048', 7, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('加工中心-德玛吉', 'ZZ-SC-E 054', 7, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('加工中心-德玛吉', 'ZZ-SC-E 055', 7, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('高速加工中心-永进', 'ZZ-SC-E 061', 7, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('高速加工中心-永进', 'ZZ-SC-E 062', 7, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('加工中心-东芝', 'ZZ-SC-E 063', 7, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('高速加工中心-永进', 'ZZ-SC-E 065', 7, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('高速加工中心-永进', 'ZZ-SC-E 066', 7, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('高速加工中心-海天', 'ZZ-SC-E 067', 7, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('合模机', 'ZZ-SC-E 045', 16, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('合模机', 'ZZ-SC-E 060', 16, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('测量设备-海克斯康三坐标', 'ZZ-PZ-F 064', 6, '[[0,480],[690,750],[1020,1440]]', 0);
+insert into machine_info (name, code, belongedDept, restTime, isVirtual) values ('测量设备-布朗夏普三坐标', 'ZZ-PZ-F 065', 6, '[[0,480],[690,750],[1020,1440]]', 0);
+
+insert into model_info (id,code,startTime,finishTime) values(5,'test',1,1);
+insert into part_info (id,code,name,belongedModel,amount) value(16,'code','name',5,0);
+
+财务计算
+
+模具成本 = 机器折旧 + 人工成本 + 机器修理费分摊 + 电费分摊 + 平摊费用
+
+机器折旧：
+
+		  模具1 t1
+    	/	
+   机器1——模具2 t2
+    	\	
+    	  模具3 t3
+
+    	  模具1 t4
+    	/	
+   机器2——模具2 t5
+    	\	
+    	  模具3 t6
+
+    	  模具1 t7
+    	/	
+   机器3——模具2 t8
+    	\	
+    	  模具3 t9
+
+   模具1该月的机器折旧 = 机器1的月折旧*t1/(t1+t2+t3) + 
+   						 机器2的月折旧*t4/(t4+t5+t6) + 
+   						 机器3的月折旧*t7/(t7+t8+t9)
+
+人工成本：
+		
+		  工序1
+		/
+   模具1——工序2
+   	    \
+   	      工序3
+
+   模具1该月的人工成本 = 工序1的非加班时间*工序1的非加班工资 + 
+   						 工序2的非加班时间*工序2的非加班工资 +
+   						 工序3的非加班时间*工序3的非加班工资
+
+机器修理费分摊：
+
+   	      模具1 t1
+    	/	
+   机器1——模具2 t2
+    	\	
+    	  模具3 t3
+
+    	  模具1 t4
+    	/	
+   机器2——模具2 t5
+    	\	
+    	  模具3 t6
+
+    	  模具1 t7
+    	/	
+   机器3——模具2 t8
+    	\	
+    	  模具3 t9
+
+   该月分摊到模具1的机器修理费 = 机器1的修理费*t1/(t1+t2+t3) +
+                                 机器2的修理费*t4/(t4+t5+t6) + 
+   						         机器3的修理费*t7/(t7+t8+t9)
+
+电费分摊：
+
+          模具1 t1
+    	/	
+   机器1——模具2 t2
+    	\	
+    	  模具3 t3
+
+    	  模具1 t4
+    	/	
+   机器2——模具2 t5
+    	\	
+    	  模具3 t6
+
+    	  模具1 t7
+    	/	
+   机器3——模具2 t8
+    	\	
+    	  模具3 t9
+
+   该月分摊到模具1的电费 = 该月的电费*(p1*t1+p2*t4+p3*t7)/
+   						   (p1*t1+p1*t2+p1*t3+p2*t4+p2*t5+p2*t6+p3*t7+p3*t8+p3*t9)
+
+平摊费用：
+
+   模具1 t1
+   模具2 t2
+   模具3 t3
+
+   该月平摊到模具1的费用 = 该月所有的平摊费用*t1/(t1+t2+t3)
+
+
+L表示月初时间戳
+R表示月末时间戳
+
+select mi.id,ptl.machineId,ptl.startTime,ptl.finishTime,ptl.lowWage,ptl.highWage,ptl.lowPayedTime,ptl.highPayedTime,ptl.userTime,ptl.machineTime from part_task_list as ptl left join part_info pi on ptl.belongedPart=pi.id left join model_info mi on pi.belongedModel=mi.id where ptl.flag=1 and ptl.startTime<R and ptl.finishTime>L

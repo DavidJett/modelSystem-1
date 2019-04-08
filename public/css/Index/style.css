@@ -1,0 +1,54 @@
+.model-system-container
+{
+	margin-top: 50px;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.model-system-container input
+{
+	width: 300px;
+	margin-top: 50px;
+}
+
+.input-container
+{
+	width: 300px;
+	white-space: nowrap;
+	overflow: visible;
+	margin: 0px auto;
+	text-align: left;
+}
+
+#modify-password:hover
+{
+	cursor: pointer;
+}
+
+.mask-container
+{
+	margin-top: 10%;
+}
+
+.mask-text
+{
+	font-size: 24px;
+	color: rgba(220,20,60,1);
+	margin-bottom: 25px;
+}
+
+.mask-label
+{
+	font-size: 20px;
+	display: inline-block;
+	min-width: 100px;
+	text-align: right;
+	margin-right: 8px; 
+}
+
+.notice
+{
+	font-size: 18px;
+	color: rgba(220,20,60,1);
+	margin: 15px 0px;
+}

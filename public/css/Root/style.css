@@ -1,0 +1,124 @@
+.model-system-container
+{
+	margin-left: 50px;
+	overflow: visible;
+	white-space: nowrap;
+}
+
+.search
+{
+	margin: 50px 0px 0px 0px;
+	white-space: nowrap;
+}
+
+#table select[disabled="disabled"]
+{
+	min-width: 120px;
+	height: 30px;
+	border-radius: 2px;
+	border: 1px solid rgba(0,0,0,0.6);
+}
+
+#table select
+{
+	min-width: 120px;
+	height: 30px;
+	border-radius: 2px;
+	border: 2px solid rgba(0,148,205,0.8);
+}
+
+.mask-container select
+{
+	min-width: 240px;
+	height: 30px;
+	border-radius: 2px;
+	border: 2px solid rgba(0,148,205,0.8);
+}
+
+.label
+{
+	min-width: 150px;
+	text-align: right;
+	margin-right: 5px; 
+	display: inline-block;
+	color: #000000;
+	font-size: 16px;
+}
+
+.search button
+{
+	margin: 0px 10px;
+}
+
+#table
+{
+	margin-top: 10px;
+}
+
+#table button
+{
+	margin: 0px 5px; 
+}
+
+#table td,th
+{
+	white-space: nowrap;
+	text-align: center;
+}
+
+#table input[disabled="disabled"]
+{
+	width: 100px;
+	border-color: rgba(0,0,0,0.6);
+	border-width: 1px;
+}
+
+#table input
+{
+	width: 100px;
+}
+
+.mask-container
+{
+	margin: 100px 0px;
+	text-align: center;
+}
+
+.mask-text
+{
+	font-size: 20px;
+	color: rgba(220,20,60,1);
+	margin-bottom: 50px;
+}
+
+.change-page
+{
+	text-align: center;
+	margin: 20px auto;
+	font-size: 20px;
+}
+
+.change-page a[href]
+{
+	margin: 0px 10px;
+	cursor: pointer;
+	color: #337ab7;
+}
+
+.change-page a
+{
+	margin: 0px 10px;
+	text-decoration: none;
+	color: #8B8B7A;
+}
+
+.change-page p
+{
+	float: left;
+	color: rgba(220,20,60,1);
+}
+
+#finished-models
+{
+	
+}

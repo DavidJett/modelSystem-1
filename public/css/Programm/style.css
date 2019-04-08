@@ -1,0 +1,113 @@
+.model-system-container
+{
+	margin-left: 50px; 
+}
+
+.model-system-machine
+{
+	display: inline-block;
+	border: 1px solid rgba(65,105,225,0.8);
+	border-radius: 2px;
+	white-space: nowrap;
+}
+
+.model-system-machine:hover
+{
+	cursor: pointer;
+	background-color: rgba(65,105,225,0.1);
+}
+
+.model-system-machine p
+{
+	margin: 15px 5px;
+}
+
+.model-system-task
+{
+	border: 1px solid rgba(51,51,51,0.5);
+	display: inline-block;
+	margin-right: 20px;
+	padding: 5px 10px;
+	border-radius: 2px;
+}
+
+#model-system-table
+{
+	white-space: nowrap;
+	margin: 0px auto;
+}
+
+.model-system-task:hover
+{
+	cursor: pointer;
+	background-color: rgba(51,51,51,0.1);
+}
+
+.model-system-task p
+{
+	margin: 5px;
+}
+
+.model-system-task-queue
+{
+	width: 1000px;
+	overflow-x: scroll; 
+	white-space: nowrap;
+}
+
+.mask-date-container
+{
+	margin: 100px 0px;
+}
+
+.mask-modelParts-container
+{
+	margin: 100px 0px;
+}
+
+.mask-part-container
+{
+	margin: 0px 20px;
+	display: inline-block;
+}
+
+.mask-part-container select
+{
+	min-width: 120px;
+	height: 25px;
+	border-radius: 2px;
+	border: 1px solid rgba(0,0,0,1);
+	margin: 5px 3px 5px 5px;
+}
+
+.mask-part-container input
+{
+	width: 120px;
+	height: 25px;
+	border-radius: 2px;
+	border: 1px solid rgba(0,0,0,1);
+	margin: 5px 3px 5px 5px;
+}
+
+.mask-part-container span
+{
+	color: rgba(0,0,0,1);
+}
+
+.mask-text
+{
+	font-size: 20px;
+	color: rgba(220,20,60,1);
+}
+
+.state-y
+{
+	margin: 0px;
+	color: #df1919;
+}
+
+.state-n
+{
+	margin: 0px;
+	color: #2ed611;
+}
